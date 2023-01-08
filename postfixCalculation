@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+#include<stack>
+#include<math.h>
+int calculatePostfix(string postfix){
+
+  stack<int>s;
+
+  int len=postfix.length();
+  for(int i=0;i<len;i++){
+    if(postfix[i]>='0' && postfix[i]<='9'){
+        s.push(postfix[i]);
+    }else{
+      int a=s.top();
+      s.pop();
+      int b=s.top();
+      s.pop();
+
+     if(postfix[i]=='+'){
+    s.push(b+a);
+   }else if(postfix[i]=='-'){
+     s.push(b-a);
+   }else if(postfix[i]=='*'){
+     s.push(b*a);
+   }else if(postfix[i]=='/'){
+     s.push(b/a);
+   }else if(postfix[i]=='^'){
+     s.push(pow(b,a));
+   }
+
+    }
+  }
+return s.top();
+}
+int main(){
+
+  string postfix;
+  cin>>postfix;
+  cout<<calculatePostfix(postfix);
+
+}
