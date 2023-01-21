@@ -1,5 +1,5 @@
-Create a cpp file from code blocks
-copy this full code
+Create a cpp file from code blocks.
+Copy this full code
 and run the following expression
   
   ((a+b-c)*d^e^f)/g
